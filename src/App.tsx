@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "./hooks/useAuth";
 import { validateEmail } from "./utils/validations";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "./pages/dashboard/DashboardPage";
 
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
