@@ -62,15 +62,15 @@ const DayShiftPage: React.FC = () => {
 
             {/* Inputs VTR */}
             {[
-                { className: 'campo-data', placeholder: 'Data' },
-                { className: 'vtr1', placeholder: 'VTR 1' },
-                { className: 'vtr2', placeholder: 'VTR 2' },
-                { className: 'vtr3', placeholder: 'VTR 3' },
-                { className: 'vtr4', placeholder: 'VTR 4' },
-                { className: 'vtrGoc', placeholder: 'VTR Goc' },
-                { className: 'vtrGpar', placeholder: 'VTR Gpar' },
-                { className: 'vtrRomu', placeholder: 'VTR Romu' },
-                { className: 'vtrRomo1', placeholder: 'VTR Romo1' },
+                { className: 'campo-data', placeholder: '' },
+                { className: 'vtr1', placeholder: '' },
+                { className: 'vtr2', placeholder: '' },
+                { className: 'vtr3', placeholder: '' },
+                { className: 'vtr4', placeholder: '' },
+                { className: 'vtrGoc', placeholder: '' },
+                { className: 'vtrGpar', placeholder: '' },
+                { className: 'vtrRomu', placeholder: '' },
+                { className: 'vtrRomo1', placeholder: '' },
             ].map((item, i) => (
                 <input
                     key={i}
@@ -108,21 +108,43 @@ const DayShiftPage: React.FC = () => {
             ))}
 
             {/* Inputs restantes */}
-            {['cecom', 'paco', 'cem', 'medici', 'patio', 'creche-do-treviso', 'creche-do-treviso-campo', 'outro1', 'outro1-campo', 'outro2', 'outro2-campo', 'outro3', 'outro3-campo'].map((cls, i) => (
+
+            {[
+                { className: 'cecom', placeholder: '' },
+                { className: 'cecom', placeholder: '' },
+                { className: 'cem', placeholder: '' },
+                { className: 'medici', placeholder: '' },
+                { className: 'patio', placeholder: '' },
+                { className: 'creche-do-treviso', placeholder: '' },
+                { className: 'creche-do-treviso-campo', placeholder: '' },
+                { className: 'outro1', placeholder: '' },
+                { className: 'outro1-campo', placeholder: '' },
+                { className: 'outro2', placeholder: '' },
+                { className: 'outro2-campo', placeholder: '' },
+                { className: 'outro3', placeholder: '' },
+                { className: 'outro3-campo', placeholder: '' },
+                { className: '', placeholder: '' },
+                { className: '', placeholder: '' },
+            ].map((item, i) => (
                 <input
-                    key={i + 21}
-                    ref={el => { if (el) inputsRef.current[i + 21] = el; }}
+                    key={i}
+                    ref={el => { if (el) inputsRef.current[i] = el; }}
                     type="text"
-                    className={`input ${cls}`}
-                    placeholder={cls.replace(/-/g, ' ')}
+                    className={`input ${item.className}`}
+                    placeholder={item.placeholder}
                 />
             ))}
+
+
+
+
+
 
             {/* Textarea */}
             <textarea
                 ref={textAreaRef}
                 className="textarea observacao"
-                placeholder="Observações"
+                placeholder=""
             />
         </div>
     );
