@@ -135,11 +135,6 @@ const DayShiftPage: React.FC = () => {
                 />
             ))}
 
-
-
-
-
-
             {/* Textarea */}
             <textarea
                 ref={textAreaRef}
