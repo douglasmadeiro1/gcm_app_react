@@ -1,15 +1,17 @@
 import React from 'react';
-import './DashboardPage.css';
+import { Outlet } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import MainContent from './components/MainContent';
+import './DashboardPage.css';
 
-const Dashboard: React.FC = () => {
+const DashboardPage: React.FC = () => {
     return (
-        <div className="dashboard-container">
+        <div className="dashboard-container" style={{ display: 'flex' }}>
             <Sidebar />
-            <MainContent />
+            <main style={{ flex: 1, padding: '20px' }}>
+                <Outlet />
+            </main>
         </div>
     );
 };
 
-export default Dashboard;
+export default DashboardPage;

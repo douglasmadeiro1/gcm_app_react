@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { useAuth } from "./hooks/useAuth";
 import { validateEmail } from "./utils/validations";
-import Dashboard from "./pages/dashboard/DashboardPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import DashboardPage from "./pages/dashboard/DashboardPage";
+import DayShiftPage from "./pages/registers/day_shift/DayShiftPage";
+import NightShiftPage from "./pages/registers/night_shift/NightShiftPage";
+import ReportOfManagerPage from "./pages/registers/manager_report/ManagerReportPage";
+import PatrolReportPage from "./pages/registers/patrol_report/PatrolReportPage";
+import PatrolReportRomoPage from "./pages/registers/patrol_report_romo/PatrolReportRomoPage";
+import ReleaseTermPage from "./pages/registers/release_term/ReleaseTermPage";
 
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
@@ -13,6 +21,7 @@ function App() {
   const [isActive, setIsActive] = useState(false);
   const { user, login, register, recoverPassword } = useAuth();
 
+  // Funções de login, registro e recuperação
   const handleLoginSubmit = async (email: string, password: string) => {
     try {
       await login(email, password);
@@ -41,10 +50,26 @@ function App() {
     await recoverPassword(email);
   };
 
+
   if (user) {
-    return <Dashboard />;
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<DashboardPage />}>
+            {/* Sub-rotas dentro do Dashboard */}
+            <Route path="registers/day-shift" element={<DayShiftPage />} />
+            <Route path="registers/night-shift" element={<NightShiftPage />} />
+            <Route path="registers/report-of-manager" element={<ReportOfManagerPage />} />
+            <Route path="registers/patrol-report" element={<PatrolReportPage />} />
+            <Route path="registers/patrol-report-romo" element={<PatrolReportRomoPage />} />
+            <Route path="registers/release-term" element={<ReleaseTermPage />} />
+          </Route>
+        </Routes>
+      </Router>
+    );
   }
 
+  // Tela de login/registro
   return (
     <div className={`container ${isActive ? "active" : ""}`}>
       <LoginForm onSubmit={handleLoginSubmit} onRecoverPassword={handleRecoverPassword} />
