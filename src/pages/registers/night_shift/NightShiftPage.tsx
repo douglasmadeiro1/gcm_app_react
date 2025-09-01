@@ -1,6 +1,5 @@
 // src/pages/documents/DayShiftPage.tsx
 import React, { useEffect, useRef } from 'react';
-import './DayShiftPage.css';
 import plantaoNoturno from '../../../assets/image/plantao-noturno.jpg';
 
 const NightShiftPage: React.FC = () => {
