@@ -74,12 +74,17 @@ body {
 }
 
 /* Conteúdo principal */
+/* dashboard.css */
+
 .main-content {
   flex-grow: 1;
-  background-color: var(--bg);
   overflow-y: auto;
-  padding: 2rem;
-  width: calc(100% - 250px);
+  /* Use padding-top para evitar que o conteúdo fique por baixo do topbar */
+  padding-top: 60px;
+  /* Ou um valor um pouco maior, como 70px ou 80px */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* Cabeçalho */
