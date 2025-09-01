@@ -1,9 +1,9 @@
 // src/pages/documents/DayShiftPage.tsx
 import React, { useEffect, useRef } from 'react';
-import './NightShiftPage.css';
-import plantaoNoturno from '../../../../../src/assets/image/plantao-noturno.jpg';
+import './DayShiftPage.css';
+import plantaoDiurno from '../../../assets/image/plantao-diurno.jpg';
 
-const NightShiftPage: React.FC = () => {
+const DayShiftPage: React.FC = () => {
     const inputsRef = useRef<HTMLInputElement[]>([]);
     const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
     const selectsRef = useRef<HTMLSelectElement[]>([]);
@@ -58,7 +58,7 @@ const NightShiftPage: React.FC = () => {
 
     return (
         <div className="form-container">
-            <img src={plantaoNoturno} className="form-background" alt="Modelo de Plantão" />
+            <img src={plantaoDiurno} className="form-background" alt="Modelo de Plantão" />
 
             {/* Inputs VTR */}
             {[
@@ -145,4 +145,4 @@ const NightShiftPage: React.FC = () => {
     );
 };
 
-export default NightShiftPage;
+export default DayShiftPage;
