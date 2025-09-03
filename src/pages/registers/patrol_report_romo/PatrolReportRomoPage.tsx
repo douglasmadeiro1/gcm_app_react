@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import frenteImg from "../../../assets/image/patrulhamento-romo-frente.jpg";
 import versoImg from "../../../assets/image/patrulhamento-verso.jpg";
-import "./PatrolReportRomoPage.css";
+import styles from "./PatrolReportRomoPage.module.css";
 
 const PatrolReportRomoPage: React.FC = () => {
     const inputsRef = useRef<(HTMLInputElement | HTMLSelectElement)[]>([]);
@@ -33,8 +33,10 @@ const PatrolReportRomoPage: React.FC = () => {
         inputsRef.current.forEach(el => {
             el.value = "";
             ajustarFonte(el);
+
             const inputHandler = () => ajustarFonte(el);
             const resizeHandler = () => ajustarFonte(el);
+
             el.addEventListener("input", inputHandler);
             window.addEventListener("resize", resizeHandler);
 
@@ -49,18 +51,17 @@ const PatrolReportRomoPage: React.FC = () => {
         if (el && !inputsRef.current.includes(el)) inputsRef.current.push(el);
     };
 
+    const campos = ["vtr1", "km1", "vtr2", "km2", "vtr3", "km3", "data", "turno1", "turno2", "equipe", "ht", "talao", "km"];
+
     return (
-        <div className="formulario">
+        <div className={`${styles.formContainer} ${styles.debug}`}>
             {/* Página Frente */}
-            <div className="pagina frente">
-                <img src={frenteImg} className="form-background" alt="Frente" />
-
-                {/* Campos */}
-                {["vtr1", "km1", "vtr2", "km2", "vtr3", "km3", "data", "turno1", "turno2", "equipe", "ht", "talao", "km"].map(campo => (
-                    <input key={campo} type="text" className={`input ${campo}`} ref={addRef} />
+            <div className={styles.pagina}>
+                <img src={frenteImg} className={styles["form-background"]} alt="Frente" />
+                {campos.map(campo => (
+                    <input key={campo} type="text" className={`${styles.input} ${styles[campo]}`} ref={addRef} />
                 ))}
-
-                <select className="input areas" ref={addRef}>
+                <select className={`${styles.input} ${styles.areas}`} ref={addRef}>
                     <option value=""></option>
                     <option value="Área 1">1/2 - 3/4 - 1/2 - 3/4</option>
                     <option value="Área 2">3/4 - 1/2 - 3/4 - 1/2</option>
@@ -73,8 +74,8 @@ const PatrolReportRomoPage: React.FC = () => {
             </div>
 
             {/* Página Verso */}
-            <div className="pagina verso">
-                <img src={versoImg} className="form-background" alt="Verso" />
+            <div className={styles.pagina}>
+                <img src={versoImg} className={styles["form-background"]} alt="Verso" />
             </div>
         </div>
     );

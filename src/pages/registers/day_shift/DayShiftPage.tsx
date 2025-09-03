@@ -1,6 +1,5 @@
-// src/pages/documents/DayShiftPage.tsx
 import React, { useEffect, useRef } from 'react';
-import './DayShiftPage.css';
+import styles from './DayShiftPage.module.css';
 import plantaoDiurno from '../../../assets/image/plantao-diurno.jpg';
 
 const DayShiftPage: React.FC = () => {
@@ -57,47 +56,45 @@ const DayShiftPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="form-container">
-            <img src={plantaoDiurno} className="form-background" alt="Modelo de Plantão" />
+        <div className={`${styles.formContainer} ${styles.debug}`}>
+            <img src={plantaoDiurno} className={styles.formBackground} alt="Modelo de Plantão" />
 
-            {/* Inputs VTR */}
+            {/* Campo data + VTRs */}
             {[
-                { className: 'campo-data', placeholder: '' },
-                { className: 'vtr1', placeholder: '' },
-                { className: 'vtr2', placeholder: '' },
-                { className: 'vtr3', placeholder: '' },
-                { className: 'vtr4', placeholder: '' },
-                { className: 'vtrGoc', placeholder: '' },
-                { className: 'vtrGpar', placeholder: '' },
-                { className: 'vtrRomu', placeholder: '' },
-                { className: 'vtrRomo1', placeholder: '' },
-            ].map((item, i) => (
+                'campoData',
+                'vtr1',
+                'vtr2',
+                'vtr3',
+                'vtr4',
+                'vtrGoc',
+                'vtrGpar',
+                'vtrRomu',
+                'vtrRomo1',
+            ].map((cls, i) => (
                 <input
                     key={i}
                     ref={el => { if (el) inputsRef.current[i] = el; }}
                     type="text"
-                    className={`input ${item.className}`}
-                    placeholder={item.placeholder}
+                    className={`${styles.input} ${styles[cls]}`}
                 />
             ))}
 
-            {/* Inputs Guarnições */}
+            {/* Guarnições */}
             {Array.from({ length: 8 }, (_, i) => (
                 <input
                     key={i + 9}
                     ref={el => { if (el) inputsRef.current[i + 9] = el; }}
                     type="text"
-                    className={`input guarnicao${i + 1}`}
-                    placeholder={`Guarnição ${i + 1}`}
+                    className={`${styles.input} ${styles[`guarnicao${i + 1}`]}`}
                 />
             ))}
 
             {/* Selects Áreas */}
-            {['areas1', 'areas2', 'areas3', 'areas4'].map((area, i) => (
+            {['areas1', 'areas2', 'areas3', 'areas4'].map((cls, i) => (
                 <select
                     key={i + 17}
                     ref={el => { if (el) selectsRef.current[i] = el; }}
-                    className={`input ${area}`}
+                    className={`${styles.input} ${styles[cls]}`}
                     style={{ fontFamily: 'monospace' }}
                 >
                     <option value=""></option>
@@ -107,39 +104,34 @@ const DayShiftPage: React.FC = () => {
                 </select>
             ))}
 
-            {/* Inputs restantes */}
-
+            {/* Setores */}
             {[
-                { className: 'cecom', placeholder: '' },
-                { className: 'cecom', placeholder: '' },
-                { className: 'cem', placeholder: '' },
-                { className: 'medici', placeholder: '' },
-                { className: 'patio', placeholder: '' },
-                { className: 'creche-do-treviso', placeholder: '' },
-                { className: 'creche-do-treviso-campo', placeholder: '' },
-                { className: 'outro1', placeholder: '' },
-                { className: 'outro1-campo', placeholder: '' },
-                { className: 'outro2', placeholder: '' },
-                { className: 'outro2-campo', placeholder: '' },
-                { className: 'outro3', placeholder: '' },
-                { className: 'outro3-campo', placeholder: '' },
-                { className: '', placeholder: '' },
-                { className: '', placeholder: '' },
-            ].map((item, i) => (
+                'cecom',
+                'paco',
+                'cem',
+                'medici',
+                'patio',
+                'crecheTreviso',
+                'crecheTrevisoCampo',
+                'outro1',
+                'outro1Campo',
+                'outro2',
+                'outro2Campo',
+                'outro3',
+                'outro3Campo',
+            ].map((cls, i) => (
                 <input
-                    key={i}
-                    ref={el => { if (el) inputsRef.current[i] = el; }}
+                    key={i + 21}
+                    ref={el => { if (el) inputsRef.current[i + 21] = el; }}
                     type="text"
-                    className={`input ${item.className}`}
-                    placeholder={item.placeholder}
+                    className={`${styles.input} ${styles[cls]}`}
                 />
             ))}
 
-            {/* Textarea */}
+            {/* Observação */}
             <textarea
                 ref={textAreaRef}
-                className="textarea observacao"
-                placeholder=""
+                className={`${styles.textarea} ${styles.observacao}`}
             />
         </div>
     );

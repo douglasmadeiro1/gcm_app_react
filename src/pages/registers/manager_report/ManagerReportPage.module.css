@@ -1,9 +1,7 @@
-.form-container {
+.formContainer {
     position: relative;
     width: 794px;
-    /* Largura A4 em px a 96dpi */
     height: 1123px;
-    /* Altura A4 */
     margin: 0 auto;
     background-color: white;
     font-family: sans-serif;
@@ -13,12 +11,11 @@
     position: relative;
     width: 794px;
     height: 1123px;
-    /* A4 - 29.7cm */
     page-break-after: always;
     font-family: sans-serif;
 }
 
-.form-background {
+.formBackground {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -40,53 +37,54 @@
     text-align: center;
 }
 
-@media print {
-    select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background: none;
-        border: none;
-        padding: 0;
-        pointer-events: none;
-    }
-
-    select::-ms-expand {
-        display: none;
-    }
-}
-
 .textarea {
     font-weight: bolder;
-    font-size: 20;
+    font-size: 16px;
     text-align: start;
     z-index: 2;
     background: transparent;
     border: solid;
     border-bottom: none;
     padding: 2px 4px;
+    position: absolute;
+    bottom: 42px;
+    left: 52px;
+    width: 690px;
+    height: 170px;
+    resize: vertical;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-.campo-encarregado {
+/* Debug */
+.debug .input,
+.debug .textarea {
+    outline: 1px dashed red;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+/* === CAMPOS POSICIONADOS === */
+.campoEncarregado {
     top: 166px;
     left: 340px;
     width: 350px;
 }
 
-/* Campo de data */
-.campo-data {
+.campoData {
     top: 193px;
     right: 60px;
     width: 105px;
 }
 
-.campo-hora {
+.campoHora {
     top: 193px;
     left: 200px;
     width: 150px;
 }
 
-/* VTRs */
 .vtr1 {
     top: 262px;
     left: 50px;
@@ -135,7 +133,6 @@
     width: 45px;
 }
 
-/* Guarnições */
 .guarnicao1 {
     top: 262px;
     left: 120px;
@@ -184,32 +181,34 @@
     width: 320px;
 }
 
-/* Áreas por horário (em grupos de 4 por linha) */
 .areas1 {
     top: 262px;
     right: 40px;
     width: 280px;
+    font-family: monospace;
 }
 
 .areas2 {
     top: 294px;
     right: 40px;
     width: 280px;
+    font-family: monospace;
 }
 
 .areas3 {
     top: 324px;
     right: 40px;
     width: 280px;
+    font-family: monospace;
 }
 
 .areas4 {
     top: 355px;
     right: 40px;
     width: 280px;
+    font-family: monospace;
 }
 
-/* Setor de Serviço */
 .cecom {
     top: 561px;
     right: 75px;
@@ -246,7 +245,7 @@
     width: 320px;
 }
 
-.outro0-campo {
+.outro0Campo {
     top: 720px;
     left: 60px;
     width: 285px;
@@ -258,7 +257,7 @@
     width: 320px;
 }
 
-.outro1-campo {
+.outro1Campo {
     top: 748px;
     left: 60px;
     width: 285px;
@@ -270,7 +269,7 @@
     width: 320px;
 }
 
-.outro2-campo {
+.outro2Campo {
     top: 780px;
     left: 60px;
     width: 285px;
@@ -282,31 +281,13 @@
     width: 320px;
 }
 
-.outro3-campo {
+.outro3Campo {
     top: 811px;
     left: 60px;
     width: 285px;
 }
 
-
-.observacao {
-    position: absolute;
+.campo3 {
     bottom: 42px;
     left: 52px;
-    width: 690px;
-    height: 170px;
-    border: none;
-    background: rgba(255, 255, 255, 0.7);
-    resize: vertical;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 4px;
-    box-sizing: border-box;
-
-    /* Quebra automática */
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    overflow: hidden;
-    /* Para o ajuste automático de fonte */
 }

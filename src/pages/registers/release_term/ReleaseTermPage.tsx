@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import releaseImg from "../../../assets/image/liberacao.jpg";
-import "./ReleaseTermPage.css";
+import styles from "./ReleaseTermPage.module.css";
 
 const ReleaseTermPage: React.FC = () => {
     const inputsRef = useRef<(HTMLInputElement | HTMLTextAreaElement)[]>([]);
@@ -51,21 +51,21 @@ const ReleaseTermPage: React.FC = () => {
     };
 
     return (
-        <div className="form-container">
-            <img src={releaseImg} className="form-background" alt="Termo de Liberação" />
+        <div className={`${styles.formContainer} ${styles.debug}`}>
+            <img src={releaseImg} className={styles.formBackground} alt="Termo de Liberação" />
 
             {/* Campos */}
-            <input type="text" className="input day" ref={addRef} />
-            <input type="text" className="input month" ref={addRef} />
-            <input type="text" className="input ofice" ref={addRef} />
-            <input type="text" className="input name" ref={addRef} />
-            <input type="text" className="input cpf" ref={addRef} />
-            <input type="text" className="input recolhimento" ref={addRef} />
-            <input type="text" className="input placa" ref={addRef} />
-            <input type="text" className="input chassi" ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.day}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.month}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.ofice}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.name}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.cpf}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.recolhimento}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.placa}`} ref={addRef} />
+            <input type="text" className={`${styles.input} ${styles.chassi}`} ref={addRef} />
 
             {/* Observação */}
-            <textarea className="observacao" ref={addRef}></textarea>
+            <textarea className={styles.observacao} ref={addRef}></textarea>
         </div>
     );
 };

@@ -1,20 +1,16 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.formulario {
-    width: 794px;
-    /* A4 - 21cm */
-    margin: 0 auto;
-}
-
 .pagina {
     position: relative;
     width: 794px;
     height: 1123px;
     /* A4 - 29.7cm */
     page-break-after: always;
+    font-family: sans-serif;
+}
+
+.form-container {
+    width: 794px;
+    margin: 0 auto;
+    position: relative;
     font-family: sans-serif;
 }
 
@@ -39,22 +35,7 @@ body {
     font-weight: bolder;
 }
 
-@media print {
-    select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background: none;
-        border: none;
-        padding: 0;
-        pointer-events: none;
-    }
-
-    select::-ms-expand {
-        display: none;
-    }
-}
-
+/* Inputs específicos */
 .vtr {
     top: 157px;
     left: 80px;
@@ -109,7 +90,28 @@ body {
     width: 300px;
 }
 
+/* Debug */
+.debug .input,
+.debug .textarea {
+    outline: 1px dashed red;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
 @media print {
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: none;
+        border: none;
+        padding: 0;
+        pointer-events: none;
+    }
+
+    select::-ms-expand {
+        display: none;
+    }
+
     body {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;

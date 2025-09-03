@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import frenteImg from "../../../assets/image/patrulhamento-frente.jpg";
 import versoImg from "../../../assets/image/patrulhamento-verso.jpg";
-import "./PatrolReportPage.css";
+import styles from "./PatrolReportPage.module.css";
 
 const PatrolReportPage: React.FC = () => {
     const inputRefs = useRef<HTMLInputElement[]>([]);
@@ -48,18 +48,18 @@ const PatrolReportPage: React.FC = () => {
     };
 
     return (
-        <div className="formulario">
-            <div className="pagina frente">
-                <img src={frenteImg} className="form-background" alt="Frente" />
-                <input ref={addInputRef} type="text" className="input vtr" />
-                <input ref={addInputRef} type="text" className="input data" />
-                <input ref={addInputRef} type="text" className="input turno1" />
-                <input ref={addInputRef} type="text" className="input turno2" />
-                <input ref={addInputRef} type="text" className="input equipe" />
-                <input ref={addInputRef} type="text" className="input ht" />
-                <input ref={addInputRef} type="text" className="input talao" />
-                <input ref={addInputRef} type="text" className="input km" />
-                <select ref={addSelectRef} className="input areas">
+        <div className={`${styles.formContainer} ${styles.debug}`}>
+            <div className={styles.pagina}>
+                <img src={frenteImg} className={styles["form-background"]} alt="Frente" />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.vtr}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.data}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.turno1}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.turno2}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.equipe}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.ht}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.talao}`} />
+                <input ref={addInputRef} type="text" className={`${styles.input} ${styles.km}`} />
+                <select ref={addSelectRef} className={`${styles.input} ${styles.areas}`}>
                     <option value=""></option>
                     <option value="Área 1">1/2 - 3/4 - 1/2 - 3/4</option>
                     <option value="Área 2">3/4 - 1/2 - 3/4 - 1/2</option>
@@ -71,8 +71,8 @@ const PatrolReportPage: React.FC = () => {
                 </select>
             </div>
 
-            <div className="pagina verso">
-                <img src={versoImg} className="form-background" alt="Verso" />
+            <div className={styles.pagina}>
+                <img src={versoImg} className={styles["form-background"]} alt="Verso" />
             </div>
         </div>
     );
