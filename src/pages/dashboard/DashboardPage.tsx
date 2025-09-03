@@ -93,7 +93,7 @@ const DashboardPage = () => {
             img: equipeImg,
             title: "Gerenciamento da equipe",
             desc: "Informações e registros de dados dos agentes da Guarda Civil Municipal",
-            path: "/tools/team",
+            path: "/tools/agents",
         },
     ];
 

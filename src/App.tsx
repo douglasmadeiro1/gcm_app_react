@@ -14,12 +14,13 @@ import ReleaseTermPage from "./pages/registers/release_term/ReleaseTermPage";
 
 // Importe as outras páginas de `stats` e `tools` aqui
 import ContactsPage from "./pages/tools/contacts/ContactsPage";
-import CommercialPage from "./pages/tools/commercial/CommercialPages";
+import CommercialPage from "./pages/tools/commercial/CommercialPage";
 import NotificationPage from "./pages/tools/notification/NotificationPage";
 import InfringementPage from "./pages/tools/infringement/InfringementPage";
 import PlacesPage from "./pages/tools/places/PlacesPage";
 import StatsPage from "./pages/stats/StatsPage";
 import VehiclesPage from "./pages/tools/vehicles/VehiclesPage";
+import AgentsPage from "./pages/tools/agents/AgentsPage";
 
 // ... e as outras páginas de estatísticas
 
@@ -80,6 +81,7 @@ function App() {
           <Route path="/tools/notification" element={<NotificationPage />} />
           <Route path="/tools/infringement" element={<InfringementPage />} />
           <Route path="/tools/vehicles" element={<VehiclesPage />} />
+          <Route path="/tools/agents" element={<AgentsPage />} />
         </Routes>
       </Router>
     );
