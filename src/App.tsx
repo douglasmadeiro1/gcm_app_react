@@ -14,7 +14,7 @@ import ReleaseTermPage from "./pages/registers/release_term/ReleaseTermPage";
 
 // Importe as outras páginas de `stats` e `tools` aqui
 import ContactsPage from "./pages/tools/contacts/ContactsPage";
-import CommercialPage from "./pages/tools/commercial/ComercialPage";
+import CommercialPage from "./pages/tools/commercial/CommercialPages";
 import NotificationPage from "./pages/tools/notification/NotificationPage";
 import InfringementPage from "./pages/tools/infringement/InfringementPage";
 import PlacesPage from "./pages/tools/places/PlacesPage";
